@@ -10,7 +10,7 @@ When the Subcription is available, Sentinel can be activated:
 5. After creation, select the new Workspace and click Add to create the Sentinel instance and open it
 
 ## Free Log Sources
-Attention: only the below mentioned Data Types within said Data Connectors can be onboarded into Sentinel free of charge. This does not apply to any other Data Types.
+Attention: only the below mentioned Data Types within said Data Connectors can be onboarded into Sentinel free of charge ([Source](https://docs.microsoft.com/en-us/azure/sentinel/billing?tabs=commitment-tier#free-data-sources)). This does not apply to any other Data Types.
 
 | Data Connector | "Free" Data Type |
 |:---------------|:-----------------|
