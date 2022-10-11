@@ -65,7 +65,7 @@ Playbooks are automatic workflows Sentinel can initiate followin for instance an
 5. Go to the final step, click Create and continue in the Designer
 6. In the Logic App Designer, add a new action. Choose *Office 365 Outlook*, than *Send an email*
 7. Now probably a connection needs to be made with a mailbox to be able to send emails on behalf of that mailbox. This mailbox will become the sender of alarmmails, which might be a reason to create a service account or shared mailbox for this purpose
-8. Enter the recipient(s) of the alertmail, the Subject and the Body of the mail. In doing so, it is possible to make use of several variables coming from the future incidents. E.g.: ![Send An Email V2](/doc/img/SendAnEmailV2.png)
+8. Enter the recipient(s) of the alertmail, the Subject and the Body of the mail. In doing so, it is possible to make use of several variables coming from the future incidents. E.g.:<br />![Send An Email V2](/doc/img/SendAnEmailV2.png)
 9. Click Save
 
 This playbook (or Logic App) can now be connected to any Sentinel Rules for which an alarmmail should be send if it triggers.
