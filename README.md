@@ -7,6 +7,9 @@ This code can be used to create an Azure Function that writes threat intelligenc
 - A Microsoft Sentinel Instance (see [/doc/SetupMicrosoftSentinel.md](/doc/SetupMicrosoftSentinel.md))
 - API and URL of your MISP instance
 
+### Full Instructions
+Full instructions in [INSTALL.md](INSTALL.md)
+
 ### Summary
 In summary:
 1) Create an App in the same Microsoft tenant where the Sentinel instance resides. The app requires the *ThreatIndicators.ReadWrite.OwnedBy* (Application type) permission.
@@ -21,7 +24,10 @@ In summary:
 5) Modify config.py to your needs (misp instance domain, API key, event filter etc). Upload the code to your Azure Function.
 6) Add a "New application setting" (env variable) to your Azure Function named "tenants". Create a reference to the key vault previously created
 
-Full instruction in [INSTALL.md](INSTALL.md)
+## Attic Security
+Attic Security is a solution by Zolder BV to harden and monitor public cloud solutions. Attic can be connected to a Microsoft365 tenant, and can implement Microsoft Sentinel in an automated fashion. An optional feature is the connection to a MISP server for threat intelligence. 
+
+Learn more: https://atticsecurity.com
 
 ## Usage
 
