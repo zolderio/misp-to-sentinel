@@ -10,7 +10,7 @@ This code can be used to create a Azure Function that writes threat intelligence
 {"<TENANT_ID_WITH_APP>": {"id": "<APP_ID>", "secret": "APP_SECRET"} }
 ```
 
-4) Create a Azure Function in your Azure subscription
+4) Create an Azure Function in your Azure subscription
 5) Modify config.py to your needs (misp instance domain, API key, event filter etc). Upload the code to your Azure Function.
 6) Add a "New application setting" (env variable) to your Azure Function named "tenants". Create a reference to the key vault previously created
 
