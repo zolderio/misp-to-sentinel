@@ -37,3 +37,20 @@ Which log sources contain relevant data, really depends on the organisation AND 
 | Azure Active Directory | SignInLogs | All login attempts into AzureAD, both human as programmatically, are logged including the IP-address from which it happens. Matching those IP-addresses to the CTI coming from MISP, provides exactly the alarms one envisions when connecting MISP to Microsoft365 |
 | Microsoft 365 Defender | EmailUrlInfo, EmailEvents, EmailAttachmentInfo | Extra data types within the Microsoft 365 Defender connector, allowing us to match all relevant data coming from Exchange with the CTI from MISP. <ul><li>*EmailUrlInfo* > URLs that are part of the body of e-mails can be matched to known malicious websites.</li><li>*EmailEvents* > Emailaddress, Emaildomain, IP-address of sender, Subject all are datapoints that are logged in this data type and can be matched to CTI coming from the MISP source</li><li>*EmailAttachmentInfo* > Filenames and SHA256 filehashes of email attachments can be matched to known malware or otherwise malicious files</li></ul> |
 
+## Connecting Log Sources
+Log sources can be added to Microsoft Sentinel as follows:
+
+1. Open Microsoft Sentinel
+2. Go to Data Connectors
+3. Add log sources that you deem relevant from above lists. Recommended are at least the 3 OfficeActivity logs, as they contain data (IP-addresses) that can easily be correlated to any MISP source
+
+## Checking Data Coming In
+After activating data connecters, it might take some time for data to actually flow into Sentinel. You may check data coming in, by:
+
+1. Open Microsoft Sentinel
+2. Go to Logs
+3. Close the first popup bringing you to the Query screen
+4. As a query, type: ```OfficeActivity```
+5. Hit Run
+6. If results are shown, the connector is working. Repoeat these steps for other connected log sources
+
