@@ -48,9 +48,9 @@ This is how to create a Key Vault and store the secret value in it:
 3. Configure the Key vault as you wish, pay attention to the region in which it is stored, for instance "West Europe"
 4. After creating the Key vault, under Objects click Keys and create a new key
 5. Enter the values that were copied from App Registration Secrets above
-&nbsp;&nbsp;&nbsp;- the name of the key **MUST** be "tenants"
-&nbsp;&nbsp;&nbsp;- The *Secret Value* will be the formatted secret value you created above
-&nbsp;&nbsp;&nbsp;- Other settings can be left to default values
+- the name of the key **MUST** be "tenants"
+- The *Secret Value* will be the formatted secret value you created above
+- Other settings can be left to default values
 
 ## Function
 This is how the create the Azure Function:
@@ -68,13 +68,13 @@ This is how to place the code into the Function:
 
 1. Download all files from directory [/m2s](/m2s) in this repo
 2. Open **config.py** in your text editor and insert these values:
-&nbsp;&nbsp;&nbsp;- **misp_key** = the API key that you have obtained from the MISP web portal in the preparation
-&nbsp;&nbsp;&nbsp;- **misp_domain** = the URL of the MISP server 
+- **misp_key** = the API key that you have obtained from the MISP web portal in the preparation
+- **misp_domain** = the URL of the MISP server 
 3. In the Azure Function go to *Functions* and click *Create*
 4. As the template choose *Time trigger*
-&nbsp;&nbsp;&nbsp;- Choose a name for your function, for instance "m2s"
-&nbsp;&nbsp;&nbsp;- Enter a schedule based on [CRON-syntax](https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-timer?tabs=in-process&pivots=programming-language-csharp#ncrontab-expressions). For instance to make it run daily at 0:00 o'clock: ```0 0 0 * * *```
-&nbsp;&nbsp;&nbsp;- Click *Create*
+- Choose a name for your function, for instance "m2s"
+- Enter a schedule based on [CRON-syntax](https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-timer?tabs=in-process&pivots=programming-language-csharp#ncrontab-expressions). For instance to make it run daily at 0:00 o'clock: ```0 0 0 * * *```
+- Click *Create*
 5. In the new function go to *Code + Test*
 6. Upload the Function code 
 
@@ -84,40 +84,40 @@ Some MISP servers maybe protected by an access control list, making it only acce
 ### Virtual Network
 1. Go to the service *Virtual Networks*
 2. Click *Create*
-&nbsp;&nbsp;&nbsp;- Connect the network to the same resource group as the Azure Function
-&nbsp;&nbsp;&nbsp;- Give a name to your network, for instance "m2s-vnet", and again pay attention to the region ("West Europe")
-&nbsp;&nbsp;&nbsp;- The rest of the settings can be left to default values
+- Connect the network to the same resource group as the Azure Function
+- Give a name to your network, for instance "m2s-vnet", and again pay attention to the region ("West Europe")
+- The rest of the settings can be left to default values
 3. Open the Azure Function and go to *Networking*
 4. At Outbound Traffic click *VNet Integration*
 5. Click *Add VNet*
-&nbsp;&nbsp;&nbsp;- Select the just created Virtual Network and the *default* subnet, than click *Create*
+- Select the just created Virtual Network and the *default* subnet, than click *Create*
 
 ### Public IP
 1. Go to the service *Public IP Addresses*
 2. Click *Create*
-&nbsp;&nbsp;&nbsp;- Choose a name for the IP-address, for instance "m2s-publicip"
-&nbsp;&nbsp;&nbsp;- Connect the IP-address to the same resource group as the Azure Function
-&nbsp;&nbsp;&nbsp;- The rest of the settings can be left to default values
+- Choose a name for the IP-address, for instance "m2s-publicip"
+- Connect the IP-address to the same resource group as the Azure Function
+- The rest of the settings can be left to default values
 3. Under *Overview* the reseved IP-address can be found, save it to be send to the administrator of the MISP access control list later on
 
 ### NAT Gateway
 1. Go to the service *NAT gateways*
 2. Click *Create*
-&nbsp;&nbsp;&nbsp;- Connect the NAT gateway to the same resource group as the Azure Function
-&nbsp;&nbsp;&nbsp;- Give a name to the NAT gateway, for instance "mws-nat", and pay attention to the region ("West Europe")
-&nbsp;&nbsp;&nbsp;- Go to the next step: *Outbound IP*
-&nbsp;&nbsp;&nbsp;- Select the Public IP Address from previous step. Leave Public IP prefixes unchecked.
-&nbsp;&nbsp;&nbsp;- Go to the next step: *Subnet*
-&nbsp;&nbsp;&nbsp;- Select the Virtual Network from previous step
-&nbsp;&nbsp;&nbsp;- Choose *default* as subnect
-&nbsp;&nbsp;&nbsp;- Go to *Review + Create* and click *Create*
+- Connect the NAT gateway to the same resource group as the Azure Function
+- Give a name to the NAT gateway, for instance "mws-nat", and pay attention to the region ("West Europe")
+- Go to the next step: *Outbound IP*
+- Select the Public IP Address from previous step. Leave Public IP prefixes unchecked.
+- Go to the next step: *Subnet*
+- Select the Virtual Network from previous step
+- Choose *default* as subnect
+- Go to *Review + Create* and click *Create*
 3. Open the Azure Function
 4. Verify under Networking that at *Outbound Network Features* the NAT Gateway now is enabled. Now we only need to reroute all the traffic through the gateway
 5. In the left-hand menu go to Configuration
 6. Under *Application Settings* click *New application setting*
-&nbsp;&nbsp;&nbsp;- **Name** = ```WEBSITE_VNET_ROUTE_ALL```
-&nbsp;&nbsp;&nbsp;- **Value** = ```1```
-&nbsp;&nbsp;&nbsp;- Click *OK*
+- **Name** = ```WEBSITE_VNET_ROUTE_ALL```
+- **Value** = ```1```
+- Click *OK*
 7. Click *Save* to save the configuration
 
 ### Access Control List
