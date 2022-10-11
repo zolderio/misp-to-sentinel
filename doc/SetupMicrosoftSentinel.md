@@ -33,10 +33,10 @@ Besides the free-of-charge log sources, it is possible to onboard all kinds of o
 Which log sources contain relevant data, really depends on the organisation AND in our set-up: the available threat information in the connected MISP server. And especially because of the extra cost that might arise from onboarding: first have a clear understanding of what data needs to be matcht or what other purpose a particular log source has, and do not connect log sources you don't really need.
 
 | Data Connector | Data Type | Provides us with |
-|:---------------|:----------|:-----------------:
+|:---------------|:----------|:-----------------|
 | Azure Active Directory | SignInLogs | All login attempts into AzureAD, both human as programmatically, are logged including the IP-address from which it happens. Matching those IP-addresses to the CTI coming from MISP, provides exactly the alarms one envisions when connecting MISP to Microsoft365 |
 | Microsoft 365 Defender | EmailUrlInfo, EmailEvents, EmailAttachmentInfo | Extra data types within the Microsoft 365 Defender connector, allowing us to match all relevant data coming from Exchange with the CTI from MISP. 
 
-*EmailUrlInfo* > URLs that are part of the body of e-mails can be matched to known malicious websites.
-*EmailEvents* > Emailaddress, Emaildomain, IP-address of sender, Subject all are datapoints that are logged in this data type and can be matched to CTI coming from the MISP source
-*EmailAttachmentInfo* > Filenames and SHA256 filehashes of email attachments can be matched to known malware or otherwise malicious files |
+- *EmailUrlInfo* > URLs that are part of the body of e-mails can be matched to known malicious websites.
+- *EmailEvents* > Emailaddress, Emaildomain, IP-address of sender, Subject all are datapoints that are logged in this data type and can be matched to CTI coming from the MISP source
+- *EmailAttachmentInfo* > Filenames and SHA256 filehashes of email attachments can be matched to known malware or otherwise malicious files |
