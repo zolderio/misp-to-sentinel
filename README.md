@@ -1,6 +1,9 @@
 # MISP to Microsoft Sentinel
 This code can be used to create an Azure Function that writes threat intelligence from a MISP instance to Microsoft Sentinel. The code is a modified version of the following repository: https://github.com/microsoftgraph/security-api-solutions/tree/master/Samples/MISP
 
+## Background
+For some context about this project, in Dutch, please read the [MISP to Microsoft Sentinel Whitepaper](/doc/%5Btlp-white%5D%20MISP%20to%20Microsoft%20Sentinel%20Whitepaper.pdf): 
+
 ## Installation
 ### Prerequisities
 - An Azure Subscription 
