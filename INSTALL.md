@@ -66,17 +66,11 @@ This is how the create the Azure Function:
 ## Function Code
 This is how to place the code into the Function:
 
-1. Download all files from directory [/m2s](/m2s) in this repo
+1. Download all files from this repo
 2. Open **config.py** in your text editor and insert these values:
 - **misp_key** = the API key that you have obtained from the MISP web portal in the preparation
 - **misp_domain** = the URL of the MISP server 
-3. In the Azure Function go to *Functions* and click *Create*
-4. As the template choose *Time trigger*
-- Choose a name for your function, for instance "m2s"
-- Enter a schedule based on [CRON-syntax](https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-timer?tabs=in-process&pivots=programming-language-csharp#ncrontab-expressions). For instance to make it run daily at 0:00 o'clock: ```0 0 0 * * *```
-- Click *Create*
-5. In the new function go to *Code + Test*
-6. Upload the Function code 
+3. Upload all the files using Visual Studio Code to the Azure Function created in the previous steps
 
 ## Extra Setup for Fixed IP
 Some MISP servers maybe protected by an access control list, making it only accessible from certain listed IP-addresses. In such cases it may be necessary for the Azure Function to be configured to connect to MISP from a fixed IP address. This is possible by making the Function to run through an Azure NAT Gateway. How to do this, has been inspired by [this description from Microsoft](https://learn.microsoft.com/en-us/azure/azure-functions/functions-how-to-use-nat-gateway), and goes as follows:
